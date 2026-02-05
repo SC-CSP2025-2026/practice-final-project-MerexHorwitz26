@@ -1,0 +1,29 @@
+body {
+  /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=01fff0&c2=d1ede8&gt=l&gd=dtl
+*/
+  background: #01fff0;
+  background: linear-gradient(315deg, #01fff0, #d1ede8);
+  align-items: center;
+  font-family: "Bitcount Single", cursive, serif;
+}
+
+h1 {
+  font-family: "Bitcount Single", cursive, serif;
+  text-align: center;
+}
+
+.text input {
+  display: block;
+  margin: 0 auto;
+  width: 300px; /* try 250–400px */
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.text h4 {
+  margin-top: 12px;
+  text-align: center;
+}
