@@ -25,9 +25,11 @@ const searchRecipe = async (searchTerm) => {
   let listItem = `<li class="list-group-item">
         <h4>RECIPE:</h4>
         <div class="recipe-title">${recipe.title}</div>`;
+
   recipe.extendedIngredients.forEach((ingredient) => {
     listItem += `<div class="recipe-ingredients">${ingredient.name}</div>`;
   });
+
   listItem += `<div class="recipe-instructions">${recipe.instructions} </div>`;
   recipesList.insertAdjacentHTML("beforeend", listItem);
   // resultsDiv.innerHTML += `<p>${recipe.title}</p>`;
