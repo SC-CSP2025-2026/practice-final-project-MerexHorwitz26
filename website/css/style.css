@@ -14,7 +14,7 @@ h1 {
   text-align: center;
 }
 
-.text input {
+.button-container {
   display: block;
   margin: 0 auto;
   width: 300px; /* try 250–400px */
@@ -30,4 +30,31 @@ h1 {
 
 .list-group-item {
   text-align: center;
+}
+
+.recipe-title {
+  font-size: x-large;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Style recipe box */
+.recipes-list {
+  list-style: none;
+  padding: 0;
 }

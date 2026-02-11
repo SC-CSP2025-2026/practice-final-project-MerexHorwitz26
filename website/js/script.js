@@ -1,3 +1,7 @@
+const veganButton = document.querySelector("#vegan-btn");
+const highproteinButton = document.querySelector("#highprotein-btn");
+const dessertButton = document.querySelector("#dessert-btn");
+
 const recipesList = document.querySelector(".recipes-list");
 const searchRecipe = async (searchTerm) => {
   const url = `https://student-api-proxy.onrender.com/api/spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/random?tags=${searchTerm}&number=1`;
@@ -12,22 +16,37 @@ const searchRecipe = async (searchTerm) => {
   const response = await fetch(url, options);
   const result = await response.json();
   const data = result.data;
-  const recipes = data.recipes;
+  const recipe = data.recipes[0]; //grabs the first recipe everytime
 
-  recipes.innerHTML = "";
+  recipesList.innerHTML = "";
 
-  console.log(data);
+  // console.log(data);
 
-  recipes.forEach((recipe) => {
-    const listItem = `<li class="list-group-item">
+  let listItem = `<li class="list-group-item">
         <h4>RECIPE:</h4>
-        <div class="recipe-title">${recipes.title}</div>
-        <div class="recipe-ingredients">${recipes.extendedIngredients}</div>
-        <div class="recipe-instructions">${recipe.instructions} </div>`;
-    recipesList.insertAdjacentHTML("beforeend", listItem);
-    // resultsDiv.innerHTML += `<p>${recipe.title}</p>`;
-    console.log(recipe);
+        <div class="recipe-title">${recipe.title}</div>`;
+  recipe.extendedIngredients.forEach((ingredient) => {
+    listItem += `<div class="recipe-ingredients">${ingredient.name}</div>`;
   });
+  listItem += `<div class="recipe-instructions">${recipe.instructions} </div>`;
+  recipesList.insertAdjacentHTML("beforeend", listItem);
+  // resultsDiv.innerHTML += `<p>${recipe.title}</p>`;
+  console.log(recipe);
 };
 
-searchRecipe("dessert");
+// searchRecipe("dessert");
+// searchRecipe("vegan");
+// searchRecipe("high protein");
+
+veganButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  searchRecipe("Vegan"); //valid call
+});
+highproteinButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  searchRecipe("High Protein"); //valid call
+});
+dessertButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  searchRecipe("Dessert"); //valid call
+});
