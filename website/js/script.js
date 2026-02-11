@@ -42,13 +42,13 @@ const searchRecipe = async (searchTerm) => {
 
 veganButton.addEventListener("click", (event) => {
   event.preventDefault();
-  searchRecipe("Vegan"); //valid call
+  searchRecipe("vegan"); //valid call
 });
 highproteinButton.addEventListener("click", (event) => {
   event.preventDefault();
-  searchRecipe("High Protein"); //valid call
+  searchRecipe("primal"); //valid call
 });
 dessertButton.addEventListener("click", (event) => {
   event.preventDefault();
-  searchRecipe("Dessert"); //valid call
+  searchRecipe("dessert"); //valid call
 });
